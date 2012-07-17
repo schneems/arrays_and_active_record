@@ -49,11 +49,21 @@ class ArrayTest < Test::Unit::TestCase
   # pull out a select set of elements, in one line of code and without using reject
   # find and use an array method that makes this test pass.
   # Hint: Object#is_a?
+  # example: "hello".is_a?(String) #=> true
+  #           1.is_a?(String)      #=> false
   def test_oposite_of_reject
     array = ["hello", 2, 3, "there", "how", 9, "are you"]
     # put your code here
     assert_equal ["hello", "there", "how", "are you"], array
   end
+
+  # this test passes, just wanted to show you that assert_block expects a true or false response
+  def test_assert_block_works
+    assert_block do
+      true
+    end
+  end
+
 
 
   # sometimes we don't need a whole array to be returned, you just need to know if an 
@@ -71,7 +81,7 @@ class ArrayTest < Test::Unit::TestCase
   def  test_array_append
     array = [1,2,3,4,5]
     # put your code here
-    assert_equal [1,2,3,4,5], array
+    assert_equal [1,2,3,4,5,99], array
   end
 
 

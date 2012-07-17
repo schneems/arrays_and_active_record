@@ -172,7 +172,26 @@ When all the tests are passing, commit your questions and the fixed tests to git
 
 If you think you're being super smart and decide look at other people's pull requests, you're only hurting yourself. If you get stuck use Google or StackOverflow. Feel free to work with others, but make sure you understand how to get all of the answers by yourself. After you're done with your assignment you can look at other's work and see if they did something different from you. Maybe you'll pick up a trick or two.
 
+If you get stuck you might want to look at the documentation for these methods.
 
+    Array#each
+    Array#map
+    Array#map!
+    Array#reject
+    Array#select
+    Array#detect
+    Array#&
+    Array#+
+    Array#<<
+    Array#flatten
+    Array#uniq
+    Array#compact
+    Array#first
+    Array#last
+    Array#count
+    Array#each_with_object
+
+    
 
 #2) ActiveRecord
 
