@@ -34,10 +34,11 @@ class ArrayTest < Test::Unit::TestCase
     assert_equal [2, 4, 6, 8, 10, 12, 14, 16] , array
   end
 
-  # fix this test using only Array#map!
+  # Fix this test using only Array#map!
   # most methods that end in a bang (!) modify the original object
   # do not use assignment in this exercise, i.e. don't use "array =" 
-  # in your solution
+  # in your solution. 
+  # Hint: use (x * 2) - 1 in your map code
   def test_map_bang
     array = [1,2,3,4,5,6,7,8]
     # put your code here
@@ -86,7 +87,7 @@ class ArrayTest < Test::Unit::TestCase
 
 
   # combine two arrays using the Concatenation operator
-  def test_combine_arrays
+  def test_concat_arrays
     array_one = [1,2,3,4,5]
     array_two = [6,7,8,9,10]
     # put your code here
@@ -133,7 +134,7 @@ class ArrayTest < Test::Unit::TestCase
   end
 
   # sometimes we accidentally build arrays that have unintended nil objects, remove them from this array
-  def test_fix_nested_array
+  def test_fix_nil_array
     array_one = [1, nil, 2, 3, 4, nil, 5, nil]
     # put your code here
     assert_equal [1,2,3,4,5], array

@@ -18,6 +18,8 @@ For the first part of this exercise we'll be doing something a bit different. Ra
 
 There are many different testing frameworks and many styles of testing. You may hear of TDD (test driven development). For now we are going to use 'test/unit' which comes with Ruby. If you open the file `test/array_test` you'll see our test class `ArrayTest`. It inherits from `Test::Unit::TestCase`. We define tests by making new methods with distinct method names that start with `test_`. Here I've written a number of tests, it is your job to get them passing. In programming when two people code together and one writes the tests and the other gets them to pass, this is called ping pong pairing! Though usually they swap between tests.
 
+> Note: an error is a type of failure, so failure count = errors + failures
+
 
 First, run the test file by navigating to this directory in your terminal and then running the test file with ruby
 
@@ -191,7 +193,7 @@ If you get stuck you might want to look at the documentation for these methods.
     Array#count
     Array#each_with_object
 
-    
+
 
 #2) ActiveRecord
 
