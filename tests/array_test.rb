@@ -1,7 +1,7 @@
 require "test/unit"
 
 class ArrayTest < Test::Unit::TestCase
- 
+
   def test_true
     assert false
   end
@@ -36,8 +36,8 @@ class ArrayTest < Test::Unit::TestCase
 
   # Fix this test using only Array#map!
   # most methods that end in a bang (!) modify the original object
-  # do not use assignment in this exercise, i.e. don't use "array =" 
-  # in your solution. 
+  # do not use assignment in this exercise, i.e. don't use "array ="
+  # in your solution.
   # Hint: use (x * 2) - 1 in your map code
   def test_map_bang
     array = [1,2,3,4,5,6,7,8]
@@ -46,7 +46,7 @@ class ArrayTest < Test::Unit::TestCase
   end
 
 
-  # rather than rejecting elements based on a condition sometimes you want to 
+  # rather than rejecting elements based on a condition sometimes you want to
   # pull out a select set of elements, in one line of code and without using reject
   # find and use an array method that makes this test pass.
   # Hint: Object#is_a?
@@ -67,7 +67,7 @@ class ArrayTest < Test::Unit::TestCase
 
 
 
-  # sometimes we don't need a whole array to be returned, you just need to know if an 
+  # sometimes we don't need a whole array to be returned, you just need to know if an
   # element exists in it. Write one line of code that will return true or false if it
   # detects the number 99 in an array
   def test_is_element_in_array
@@ -88,6 +88,7 @@ class ArrayTest < Test::Unit::TestCase
 
   # combine two arrays using the Concatenation operator
   def test_concat_arrays
+    array = []
     array_one = [1,2,3,4,5]
     array_two = [6,7,8,9,10]
     # put your code here
@@ -99,6 +100,7 @@ class ArrayTest < Test::Unit::TestCase
   # Use Array#&
   # This is called the intersection, I like to think of it like a venn diagram intersection operator
   def test_combine_arrays
+    array = []
     array_one = [1,2,3,4,5]
     array_two = [2,5,9]
     # put your code here
@@ -109,6 +111,7 @@ class ArrayTest < Test::Unit::TestCase
   # Find all elements that exist in array_one but are not present in array_two
   # Use the Difference operator
   def test_difference_one_from_two
+    array = []
     array_one = [1,2,3,4,5]
     array_two = [2,5,9]
     # put your code here
@@ -119,6 +122,7 @@ class ArrayTest < Test::Unit::TestCase
   # Find all elements that exist in array_two but are not present in array_one
   # Use the Difference operator
   def test_difference_one_from_two
+    array = []
     array_one = [1,2,3,4,5]
     array_two = [2,5,9]
     # put your code here
@@ -135,6 +139,7 @@ class ArrayTest < Test::Unit::TestCase
 
   # sometimes we accidentally build arrays that have unintended nil objects, remove them from this array
   def test_fix_nil_array
+    array = []
     array_one = [1, nil, 2, 3, 4, nil, 5, nil]
     # put your code here
     assert_equal [1,2,3,4,5], array
@@ -144,19 +149,21 @@ class ArrayTest < Test::Unit::TestCase
   # find the number of elements in this array
   # assign it to a variable labeled num_of_elem
   def test_array_number_of_elements
+    num_of_elem = nil
     array = [1,2,3,4]
     # put your code here
     assert_equal 4, num_of_elem
   end
 
-  
-  # sometimes you have an array and you need to build a hash 
-  # use the `Array#each_with_object` 
+
+  # sometimes you have an array and you need to build a hash
+  # use the `Array#each_with_object`
   # http://www.ruby-doc.org/core-1.9.3/Enumerable.html#method-i-each_with_object
   # set this to a variable called hash
   def test_each_with_object
+    hash = {}
     array = [["name", "richard"], ["movie", "zoolander"]]
-    # put your code here 
+    # put your code here
     # hash = array.each_with_object({}) {|item, hash| }
     assert_equal({"name"=>"richard", "movie"=>"zoolander"}, hash)
   end
