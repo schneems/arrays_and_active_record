@@ -65,19 +65,6 @@ class ArrayTest < Test::Unit::TestCase
     end
   end
 
-
-
-  # sometimes we don't need a whole array to be returned, you just need to know if an
-  # element exists in it. Write one line of code that will return true or false if it
-  # detects the number 99 in an array
-  def test_is_element_in_array
-    array = [1,2,3,4,5,99]
-    assert_block do
-      # put your code here
-    end
-  end
-
-
   # add the element 99 to this array using the Append operator
   def  test_array_append
     array = [1,2,3,4,5]
@@ -153,19 +140,6 @@ class ArrayTest < Test::Unit::TestCase
     array = [1,2,3,4]
     # put your code here
     assert_equal 4, num_of_elem
-  end
-
-
-  # sometimes you have an array and you need to build a hash
-  # use the `Array#each_with_object`
-  # http://www.ruby-doc.org/core-1.9.3/Enumerable.html#method-i-each_with_object
-  # set this to a variable called hash
-  def test_each_with_object
-    hash = {}
-    array = [["name", "richard"], ["movie", "zoolander"]]
-    # put your code here
-    # hash = array.each_with_object({}) {|item, hash| }
-    assert_equal({"name"=>"richard", "movie"=>"zoolander"}, hash)
   end
 
 end

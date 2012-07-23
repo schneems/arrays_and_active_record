@@ -1,4 +1,4 @@
-## ActiveRecord and Arrays (and Hashesh)
+## ActiveRecord and Arrays (and Hashes)
 
 Now that we've started our projects we're going to take a look at some of the capabilities that ActiveRecord has to offer us in addition to manipulating Array's (a very valuable skill for any Rubyist). We're going to focus heavily on documentation and how to look stuff up.
 
@@ -7,10 +7,22 @@ Now that we've started our projects we're going to take a look at some of the ca
 
 Fork and clone the repo to your local machine. Navigate to this directory and run:
 
-
     $ bundle install
 
-Then follow the directions in this readme.
+Then follow the directions in this readme. Ruby `1.9.3` is required.
+
+
+## Upstream updates
+
+If you forked and cloned this repo previously you can update from my remote first by adding it to your local repo named `upstream`
+
+    $ git remote add upstream git@github.com:schneems/arrays_and_active_record.git
+
+Now you can pull my changes from my repository to your local repository:
+
+
+    $ git pull upstream master
+
 
 ## 1) Ruby Docs && Arrays
 
@@ -23,7 +35,7 @@ There are many different testing frameworks and many styles of testing. You may 
 
 First, run the test file by navigating to this directory in your terminal and then running the test file with ruby
 
-    $ ruby tests/array_test.rb
+    $ bundle exec ruby tests/array_test.rb
 
 You should see a number of failing tests go by, at the bottom you will get a recap of which tests passed and which failed like this:
 
@@ -181,7 +193,6 @@ If you get stuck you might want to look at the documentation for these methods.
     Array#map!
     Array#reject
     Array#select
-    Array#detect
     Array#&
     Array#+
     Array#-
@@ -192,7 +203,7 @@ If you get stuck you might want to look at the documentation for these methods.
     Array#first
     Array#last
     Array#count
-    Array#each_with_object
+    Enumerable#each_with_object
 
 
 
@@ -228,7 +239,7 @@ Now that we've got our docs all ready we're set to fix some tests.
 
 Run:
 
-    $ ruby tests/active_record_test.rb
+    $ bundle exec ruby tests/active_record_test.rb
 
 
 You should see some tables being created:
@@ -264,27 +275,121 @@ Here we're using a library called Faker to provide us with human readable fake n
 
 We could have also used the string substitution method (?).
 
-    dealership =  Dealership.where("name = (?)", name).where
+    dealership =  Dealership.where("name = (?)", name).first
 
 By now you should be fairly used to finding records like this. Run the tests to make sure you got that one passing. Continue on with the rest of the test until you get all of them passing.
 
 
+Methods you might use:
+
+    find
+    where
+    includes
+    order
+    limit
+    offset
+    joins
+    group
+    having
+
+
+Other snippets you might use:
+
+    group(:color).count
+    where(:id => ids)
+    where("condition LIKE (?)", "%good%")
+    where("id IN (?)", ids)
+    order("created_at ASC")
+    order("created_at DESC")
+    limit(22)
+    first(18)
+    limit(2).offset(2)
+    joins(:cars).where(:cars => {:top_speed => 55})
+    ("AVG(cars.top_speed) >= ?", 5)
+
+Note: you'll likely need to change stings or numbers to get these to work, they're just examples of how you can use the ActiveRecord Methods
+
+
+## 3) Hashes
+
+Get the tests in `tests/hash_test.rb` to pass. Run:
+
+    $ bundle exec ruby tests/hash_test.rb
+
+Like before we'll do one together. Well start with a trivial case change this:
+
+    # change the assertion to true
+    it "tests logic" do
+      assert false
+    end
+
+To this:
+
+    # change the assertion to true
+    it "tests logic" do
+      assert true
+    end
+
+
+Do you see one less failure? Great!
+
+Now Look at "pulls a single value out of a hash" test.
+
+    it "pulls a single value out of a hash" do
+      value = ""
+      hash = {:name => "richard"}
+      # put your code here
+      assert_equal "richard", value
+    end
+
+Here we need to set the value of "richard" to a variable named value. Looking at the documentation we see that we can use the `Hash#[]` method to get values out of a hash http://www.ruby-doc.org/core-1.9.3/Hash.html#method-i-5B-5D.
+
+If we open up a console we can enter in the code provided:
+
+    h = { "a" => 100, "b" => 200 }
+    h["a"]   #=> 100
+
+Here we have a hash named `h` and it contains a key of "a" pointing at a value of 100 and a key of "b" pointing at a value of 200. We can get the value for the "a" key by using the `Hash#[]` method:
+
+    h["a"]   #=> 100
+
+Perfect, now we see that if we try to get a key that doesn't exist we will get nil:
+
+    h["c"]   #=> nil
+
+So we can use this method to get the value of "richard" out of our hash:
+
+    hash = {:name => "richard"}
+    value = hash[:name]
+    => "richard"
+
+Great, now lets fix our test:
+
+    it "pulls a single value out of a hash" do
+      value = ""
+      hash = {:name => "richard"}
+      value = hash[:name]
+      assert_equal "richard", value
+    end
+
+
+It should now pass! Use the same pattern of identifying a likely method to use, testing it in the console and then fixing the tests one by one. You might notice these tests look slightly different, that is because we are using 'minitest/spec' library that comes with Ruby 1.9.3. It is similar in syntax to Rspec, but very light weight and comes as a standard library.
+
+Use these methods:
+
+    Hash#[]
+    Hash#[]=
+    Hash#keys
+    Hash#values
+    Hash#delete
+    Hash#merge
+
 When all the test pass commit to git and push to github.
-
-
-## Hashes
-
-Get the tests in `tests/hash_test.rb` to pass.
-
-
-
-When all the test pass commit to git and push to github.
-
 
 
 ## Fin
 
-That's it. You got your first taste of tests, and got a somewhat forced introduction to documentation. You also got more exposure to Arrays and ActiveRecord.
+That's it. You got your first taste of tests, and got a somewhat forced introduction to documentation. You also got more exposure to Arrays, Hashes, and ActiveRecord.
 
 Programming is kinda complicated, so the easier you can make it on yourself with docs and google the quicker you will improve. While they're helpful, they're not magic bullets. Spending a few minutes browsing documentation can save you hours of hair pulling. Not that you have to read word for word every bit of docs on every page you see, but you'll certainly develop an appreciation for critical reading.
 
