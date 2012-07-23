@@ -184,6 +184,7 @@ If you get stuck you might want to look at the documentation for these methods.
     Array#detect
     Array#&
     Array#+
+    Array#-
     Array#<<
     Array#flatten
     Array#uniq
