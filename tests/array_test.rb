@@ -108,7 +108,7 @@ class ArrayTest < Test::Unit::TestCase
   # Like the last but the opposite,
   # Find all elements that exist in array_two but are not present in array_one
   # Use the Difference operator
-  def test_difference_one_from_two
+  def test_difference_two_from_one
     array = []
     array_one = [1,2,3,4,5]
     array_two = [2,5,9]
